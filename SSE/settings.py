@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
+    'SSE.about',
+    'SSE.search',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'SSE.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'SSE/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'SSE/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
