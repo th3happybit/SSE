@@ -4,6 +4,16 @@
 	<title>Contact us</title>
 </head>
 <body>
-<h1>contact us</h1>
+
+<h1>contact us {{ welcome }}</h1>
+<form method="POST" action="{% url 'contact' %}" >
+	{% csrf_token %}
+	<input type="email" name="email">
+	<button type="submit">Send</button>
+</form>
+<ul>
+	<li><a href="{% url 'homepage' %}">Home Page</a></li>
+	<li><a href="{% url 'about' %}">About</a></li>
+</ul>
 </body>
 </html>

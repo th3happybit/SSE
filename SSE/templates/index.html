@@ -6,23 +6,24 @@
 <body>
 
 <center style="margin: 50px;">
-	<h2 style="display: inline;">Search :</h2>
-	<form method="GET" action="/search" style="display: inline;">
-		<input type="text" name="search" value="{{ keywords }}">
+	<form method="GET" action="/search">
+	{% load static %}
+	<img src="{% static "search/logo.jpg" %}" alt="Logo" style="height:233px;margin-top:89px"/>
+	<input style="margin-top:12px;display: block;width: 400px;" type="text" name="search" value="{{ keywords }}">
+	<div style="margin: 20px;">
+		<button>Search</button>
+		<button>Random</button>
+	</div>
+	
+	<h4>result : {{ result|capfirst }}</h4>
 	</form>
-<h4>result : {{ result }}</h4>
 </center>
-{% if messages %} 
-<ul class="messages"> 
-	{% for msg in messages %} 
-	<li> <div class="alert alert-{{msg.level_tag}}" role="alert"> {{msg.message}} </div> </li> 
-	{% endfor %} 
-</ul> 
-{% endif %}
+<form method="GET" action="todb"><button>TOBD</button></form>
 <br>
 <br>
 <ul>
 	<li><a href="{% url 'about' %}">About</a></li>
+	<li><a href="{% url 'contact' %}">Contact Us</a></li>
 </ul>
 
 </body>

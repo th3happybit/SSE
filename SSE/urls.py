@@ -20,13 +20,15 @@ from django.contrib import admin
 from about import views as about_views
 from search import views as search_views
 from django.views.generic import TemplateView
+from about.views import ContactPage
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^about/$', about_views.index , name='about'),
-    url(r'^about/contact', about_views.contact),
+    url(r'^about/contact/$', ContactPage.as_view(),name='contact'),
     url(r'^$', TemplateView.as_view(template_name='index.html'),name='homepage'),
     url(r'^search/$', search_views.index),
-    url(r'^getmsgs/$',search_views.msgsToJson)
+    url(r'^getmsgs/$',search_views.msgsToJson),
+    url(r'^todb/$',search_views.toDb)   
 ]
